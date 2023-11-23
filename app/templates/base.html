@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Utilizando JinJa2, el motor de plantillas  -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}"> 
+    <title>{{ data.titulo }}</title> 
+</head>
+<body>
+    <a href="{{ url_for('index')}}">Index</a>
+    <!-- Es el nombre del metodo (def en app.py) -->
+    <a href="{{ url_for('contacto')}}">Contacto</a>
+    <hr>
+
+    <h1>{{ data.encabezado }}</h1>
+    {% block contenido %}
+    {% endblock %}
+   
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>

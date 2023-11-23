@@ -1,0 +1,18 @@
+<!-- Hereda desde base.html -->
+{% extends './base.html' %}
+
+<!-- Solo se modifica desde la plantilla hija -->
+{% block contenido %}
+
+   <ul>
+    <!-- Controla si hay lenguajes -->
+    {% if data.lenguajes|length > 0 %} 
+        {% for leng in data.lenguajes %}
+            <li>{{ leng }}</li>
+        {% endfor %}
+    {% else %}
+        <h2>No existe lenguajes listados</h2>
+    {% endif %}
+   </ul>
+
+{% endblock %}

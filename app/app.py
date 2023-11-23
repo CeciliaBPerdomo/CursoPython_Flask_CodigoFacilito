@@ -21,6 +21,36 @@ def index():
 def hola_mundo():
     return 'Hola Mundo'
 
+@app.route('/contacto')
+def contacto(): 
+    data = {
+        "titulo": "Contacto", 
+        "encabezado": "Bienvenido(a)s"
+    }
+    return render_template("contacto.html", data=data)
+
+@app.route('/saludo/<nombre>') #Ruta dinamica
+def saludo(nombre):
+#    return 'Hola, Cecilia'
+    return 'Hola, {0}!'.format(nombre)
+
+
+@app.route('/suma/<int:valor1>/<int:valor2>')
+def suma(valor1, valor2):
+    return "La suma es: {0}".format((valor1 + valor2))
+
+@app.route('/perfil/<nombre>/<int:edad>')
+def perfil(nombre, edad):
+    return 'Tu nombre es: {0} y tu edad es: {1}.'.format(nombre, edad)
+
+@app.route('/lenguajes')
+def lenguajes():
+    data = {
+        "hay_lenguajes": False,
+        "lenguajes": ["PHP", "Python", "Kotlin", "Java", "C#", "JavaScript"]
+    }
+    return render_template('lenguajes.html', data=data)
+ 
 if __name__ == '__main__':  # consultamos si es la principal para poder correr el servidor.
     #app.add_url_rule('/', view_func=index) #otra forma de ver la ruta raiz
     #app.run()              # Para correr el servidor en la terminal:
