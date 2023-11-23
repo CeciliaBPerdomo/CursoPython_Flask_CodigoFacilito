@@ -18,3 +18,6 @@ tiene que aparecer (env) PS C:/etc, etc
 
 Desactivar el entorno virual:
 desactivate
+
+Para levantar el servidor: 
+python .\app\app.py
